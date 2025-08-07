@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakarim University - Шаблон 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shakarim-blue': '#314266',
+                        'shakarim-light': '#4f6392',
+                        'shakarim-dark': '#1e2a42',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-white">
+    <!-- Top Bar -->
+    <div class="bg-gray-100 border-b">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+            <div class="flex justify-between items-center text-sm">
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600"><i class="fas fa-phone mr-1"></i> +7 (7182) 67-36-69</span>
+                    <span class="text-gray-600"><i class="fas fa-envelope mr-1"></i> info@shakarim.edu.kz</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="px-3 py-1 bg-shakarim-blue text-white rounded text-xs">ҚАЗ</button>
+                    <button class="px-3 py-1 text-gray-600 hover:bg-gray-200 rounded text-xs">РУС</button>
+                    <button class="px-3 py-1 text-gray-600 hover:bg-gray-200 rounded text-xs">ENG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center">
+                    <img src="university_indigo.png" alt="Shakarim University Logo" class="h-10 w-auto">
+                </div>
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Университет туралы</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Білім беру</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Ғылым</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Студенттерге</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body">Байланыс</a>
+                </nav>
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="lg:hidden hidden border-t py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Университет туралы</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Білім беру</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Ғылым</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Студенттерге</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium">Байланыс</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcrumbs and Section -->
+    <section class="bg-gray-100 py-3 border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="text-sm text-gray-500 flex items-center space-x-2" aria-label="Breadcrumb">
+                <a href="#" class="hover:text-shakarim-blue">Главная страница</a>
+                <span class="mx-1">&#8250;</span>
+                <span class="text-shakarim-blue font-semibold">Шаблон 3</span>
+            </nav>
+        </div>
+    </section>
+    <section class="bg-white py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-2xl md:text-3xl font-heading font-bold text-shakarim-blue mb-8 mt-2">de Finibus Bonorum et Malorum</h1>
+            <div class="flex flex-col space-y-16 mt-16">
+                <!-- Card 1 (note left) -->
+                <div class="relative border rounded-lg p-6 bg-white">
+                    <div class="absolute -top-9 left-8">
+                        <div class="bg-shakarim-blue text-white rounded-lg px-4 py-2 shadow font-semibold text-base max-w-xs break-words whitespace-normal">
+                            Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-700 text-sm leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </div>
+                </div>
+                <!-- Card 2 (note right) -->
+                <div class="relative border rounded-lg p-6 bg-white">
+                    <div class="absolute -top-9 right-8">
+                        <div class="bg-shakarim-blue text-white rounded-lg px-4 py-2 shadow font-semibold text-base max-w-xs break-words whitespace-normal">
+                            Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-700 text-sm leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </div>
+                </div>
+                <!-- Card 3 (note left) -->
+                <div class="relative border rounded-lg p-6 bg-white">
+                    <div class="absolute -top-9 left-8">
+                        <div class="bg-shakarim-blue text-white rounded-lg px-4 py-2 shadow font-semibold text-base max-w-xs break-words whitespace-normal">
+                            Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-700 text-sm leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </div>
+                </div>
+                <!-- Card 4 (note right) -->
+                <div class="relative border rounded-lg p-6 bg-white">
+                    <div class="absolute -top-9 right-8">
+                        <div class="bg-shakarim-blue text-white rounded-lg px-4 py-2 shadow font-semibold text-base max-w-xs break-words whitespace-normal">
+                            Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-700 text-sm leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque порро quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magнам aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commоди consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </div>
+                </div>
+                <!-- Card 5 (note left) -->
+                <div class="relative border rounded-lg p-6 bg-white">
+                    <div class="absolute -top-9 left-8">
+                        <div class="bg-shakarim-blue text-white rounded-lg px-4 py-2 shadow font-semibold text-base max-w-xs break-words whitespace-normal">
+                            Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-700 text-sm leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque порро quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magнам aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commоди consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-shakarim-blue text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="university.png" alt="Shakarim University Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-blue-200 text-sm">1934 жылдан бері сапалы білім беру және ғылыми зерттеулер саласындағы көшбасшы университет.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Ақпарат</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Университет туралы</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Тарих</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Басшылық</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Құрылым</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Білім беру</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Бакалавриат</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Магистратура</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Докторантура</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Қашықтықтан оқыту</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Байланыс</h4>
+                    <div class="space-y-2 text-sm text-blue-200">
+                        <p>071412, Семей қ., Глинки көшесі, 20А</p>
+                        <p>+7 (7182) 67-36-69</p>
+                        <p>info@shakarim.edu.kz</p>
+                    </div>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-600 mt-8 pt-6 text-center text-sm text-blue-200">
+                <p>&copy; 2025 Шәкәрім атындағы Семей университеті. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html> 
