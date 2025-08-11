@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakarim University - Новости</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shakarim-blue': '#314266',
+                        'shakarim-light': '#4f6392',
+                        'shakarim-dark': '#1e2a42',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Prevent horizontal overflow on mobile */
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
+        /* Ensure content fits within viewport */
+        .max-w-7xl {
+            max-width: 100%;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
+        /* Mobile-first grid adjustments */
+        @media (max-width: 767px) {
+            .grid {
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-body bg-white">
+    <!-- Top Bar -->
+    <div class="bg-gray-100 border-b">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 py-2">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm space-y-2 sm:space-y-0">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-4">
+                    <span class="text-gray-600 text-xs sm:text-sm"><i class="fas fa-phone mr-1"></i> +7 (7182) 67-36-69</span>
+                    <span class="text-gray-600 text-xs sm:text-sm"><i class="fas fa-envelope mr-1"></i> info@shakarim.edu.kz</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="px-2 sm:px-3 py-1 bg-shakarim-blue text-white rounded text-xs">ҚАЗ</button>
+                    <button class="px-2 sm:px-3 py-1 text-gray-600 hover:bg-gray-200 rounded text-xs">РУС</button>
+                    <button class="px-2 sm:px-3 py-1 text-gray-600 hover:bg-gray-200 rounded text-xs">ENG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4">
+            <div class="flex items-center justify-between py-3 md:py-4">
+                <div class="flex items-center">
+                    <img src="university_indigo.png" alt="Shakarim University Logo" class="h-8 md:h-10 w-auto">
+                </div>
+                <nav class="hidden lg:flex items-center space-x-6 md:space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body text-sm md:text-base">Университет туралы</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body text-sm md:text-base">Білім беру</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body text-sm md:text-base">Ғылым</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body text-sm md:text-base">Студенттерге</a>
+                    <a href="#" class="text-shakarim-blue font-medium font-body border-b-2 border-shakarim-blue text-sm md:text-base">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium font-body text-sm md:text-base">Байланыс</a>
+                </nav>
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-lg md:text-xl text-gray-700"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="lg:hidden hidden border-t py-3 md:py-4">
+                <div class="flex flex-col space-y-3 md:space-y-4">
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium text-sm md:text-base">Университет туралы</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium text-sm md:text-base">Білім беру</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium text-sm md:text-base">Ғылым</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium text-sm md:text-base">Студенттерге</a>
+                    <a href="#" class="text-shakarim-blue font-medium border-b-2 border-shakarim-blue text-sm md:text-base">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-shakarim-blue font-medium text-sm md:text-base">Байланыс</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <section class="bg-gray-100 py-2 md:py-3 border-b">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4">
+            <nav class="text-xs md:text-sm text-gray-500 flex items-center space-x-1 md:space-x-2" aria-label="Breadcrumb">
+                <a href="#" class="hover:text-shakarim-blue">Главная страница</a>
+                <span class="mx-1">&#8250;</span>
+                <span class="text-shakarim-blue font-semibold">Новости</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="bg-white py-4 md:py-8">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4">
+            <div class="grid lg:grid-cols-3 gap-3 md:gap-8">
+                <!-- Main News Article -->
+                <div class="lg:col-span-2">
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <!-- Article Header -->
+                        <div class="p-3 md:p-6 border-b border-gray-100">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 space-y-3 md:space-y-0">
+                                <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                    <span class="bg-shakarim-blue text-white px-2 md:px-3 py-1 rounded-full text-xs font-medium w-fit">
+                                        <i class="fas fa-newspaper mr-1"></i>Новость
+                                    </span>
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="far fa-calendar mr-1"></i>15 января 2025
+                                    </span>
+                                </div>
+                                <div class="text-left md:text-right">
+                                    <span class="text-gray-600 text-sm font-medium">От:</span>
+                                    <span class="text-shakarim-blue font-semibold ml-1">Медиа-центр</span>
+                                </div>
+                            </div>
+                            <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold text-shakarim-blue leading-tight">
+                                Открытие нового научно-исследовательского центра в Шакарим университете
+                            </h1>
+                        </div>
+
+                        <!-- Article Content -->
+                        <div class="p-3 md:p-6">
+                            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-3 md:mb-6">
+                                Сегодня в Шакарим университете состоялось торжественное открытие нового научно-исследовательского центра, который станет важным этапом в развитии научного потенциала нашего региона. Центр оснащен современным оборудованием и готов принимать исследователей со всего Казахстана.
+                            </p>
+                            
+                            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-3 md:mb-6">
+                                Директор центра, профессор Ахметов А.К., отметил, что основными направлениями работы станут исследования в области экологии, устойчивого развития и инновационных технологий. Центр будет сотрудничать с ведущими научными учреждениями страны и зарубежными партнерами.
+                            </p>
+
+                            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-3 md:mb-6">
+                                Ректор университета подчеркнул важность данного проекта для развития научного потенциала региона и выразил уверенность в том, что центр станет площадкой для реализации амбициозных научных проектов и подготовки высококвалифицированных специалистов.
+                            </p>
+
+                            <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                                Открытие центра стало возможным благодаря поддержке Министерства образования и науки Республики Казахстан, а также активному участию научного сообщества университета в разработке концепции и технического задания.
+                            </p>
+                        </div>
+
+                        <!-- Article Footer -->
+                        <div class="p-3 md:p-6 bg-gray-50 border-t border-gray-100">
+                            <div class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between md:space-y-0">
+                                <div class="flex flex-wrap items-center gap-1.5 md:gap-2">
+                                    <span class="px-2 md:px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                                        #Наука
+                                    </span>
+                                    <span class="px-2 md:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                                        #Исследования
+                                    </span>
+                                    <span class="px-2 md:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">
+                                        #Университет
+                                    </span>
+                                </div>
+                                <div class="flex justify-center md:justify-end">
+                                    <div class="relative">
+                                        <button onclick="toggleShareMenu()" class="w-full md:w-auto px-3 md:px-4 py-2 bg-shakarim-blue text-white rounded-lg hover:bg-shakarim-dark transition duration-200 text-sm flex items-center justify-center">
+                                            <i class="fas fa-share mr-1"></i>Поделиться
+                                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                                        </button>
+                                        
+                                        <!-- Share Dropdown Menu -->
+                                        <div id="share-menu" class="fixed w-48 md:w-56 bg-white rounded-lg shadow-xl border border-gray-200 hidden z-[9999]">                                   
+                                            <div class="p-2">
+                                                <div class="text-xs text-gray-500 px-3 py-2 border-b border-gray-100">Поделиться в социальных сетях</div>
+                                                
+                                                <a href="#" onclick="shareToSocial('facebook')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-blue-50 rounded-lg transition duration-150 group">
+                                                    <div class="w-7 h-7 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-blue-700 transition duration-150">
+                                                        <i class="fab fa-facebook-f text-white text-xs md:text-sm"></i>
+                                                    </div>
+                                                    <span class="font-medium text-sm md:text-base">Facebook</span>
+                                                </a>
+                                                
+                                                                                                 <a href="#" onclick="shareToSocial('telegram')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-blue-50 rounded-lg transition duration-150 group">
+                                                    <div class="w-7 h-7 md:w-8 md:h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-blue-600 transition duration-150">
+                                                        <i class="fab fa-telegram-plane text-white text-xs md:text-sm"></i>
+                                                    </div>
+                                                    <span class="font-medium text-sm md:text-base">Telegram</span>
+                                                </a>
+                                                
+                                                <a href="#" onclick="shareToSocial('whatsapp')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-green-50 rounded-lg transition duration-150 group">
+                                                    <div class="w-7 h-7 md:w-8 md:h-8 bg-green-500 rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-green-600 transition duration-150">
+                                                        <i class="fab fa-whatsapp text-white text-xs md:text-sm"></i>
+                                                    </div>
+                                                    <span class="font-medium text-sm md:text-base">WhatsApp</span>
+                                                </a>
+                                                
+                                                                                                  <a href="#" onclick="shareToSocial('twitter')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-black hover:text-white rounded-lg transition duration-150 group">
+                                                     <div class="w-7 h-7 md:w-8 md:h-8 bg-black rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-gray-800 transition duration-150">
+                                                         <i class="fab fa-twitter text-white text-xs md:text-sm"></i>
+                                                     </div>
+                                                     <span class="font-medium text-sm md:text-base">Twitter</span>
+                                                 </a>
+                                                 
+                                                 <a href="#" onclick="shareToSocial('linkedin')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-blue-50 rounded-lg transition duration-150 group">
+                                                     <div class="w-7 h-7 md:w-8 md:h-8 bg-blue-700 rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-blue-800 transition duration-150">
+                                                         <i class="fab fa-linkedin-in text-white text-sm"></i>
+                                                     </div>
+                                                     <span class="font-medium text-sm md:text-base">LinkedIn</span>
+                                                 </a>
+                                                 
+                                                 <a href="#" onclick="shareToSocial('vk')" class="flex items-center px-2 md:px-3 py-2 md:py-3 text-gray-700 hover:bg-blue-50 rounded-lg transition duration-150 group">
+                                                     <div class="w-7 h-7 md:w-8 md:h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-2 md:mr-3 group-hover:bg-blue-600 transition duration-200">
+                                                         <i class="fab fa-vk text-white text-xs md:text-sm"></i>
+                                                     </div>
+                                                     <span class="font-medium text-sm md:text-base">ВКонтакте</span>
+                                                 </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar - Latest News -->
+                <div class="lg:col-span-1 order-last lg:order-last">
+                    <div class="bg-white rounded-xl shadow-lg p-3 md:p-6 lg:sticky lg:top-24">
+                        <h2 class="text-base md:text-lg lg:text-xl font-heading font-bold text-shakarim-blue mb-3 md:mb-6 flex items-center">
+                            <i class="fas fa-rss mr-2 text-orange-500"></i>
+                            Лента новостей
+                        </h2>
+
+                        <!-- Latest News List -->
+                        <div class="space-y-2 md:space-y-4 mb-3 md:mb-6">
+                            <div class="border-b border-gray-100 pb-2 md:pb-4">
+                                <div class="flex items-start space-x-2 md:space-x-3">
+                                    <div class="w-2 h-2 bg-shakarim-blue rounded-full mt-2 flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-xs md:text-sm font-medium text-gray-900 hover:text-shakarim-blue cursor-pointer line-clamp-2">
+                                            Студенты Шакарим университета победили на международной олимпиаде
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">12 января 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-b border-gray-100 pb-2 md:pb-4">
+                                <div class="flex items-start space-x-2 md:space-x-3">
+                                    <div class="w-2 h-2 bg-shakarim-blue rounded-full mt-2 flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-xs md:text-sm font-medium text-gray-900 hover:text-shakarim-blue cursor-pointer line-clamp-2">
+                                            Запуск новой образовательной программы по искусственному интеллекту
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">10 января 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-b border-gray-100 pb-2 md:pb-4">
+                                <div class="flex items-start space-x-2 md:space-x-3">
+                                    <div class="w-2 h-2 bg-shakarim-blue rounded-full mt-2 flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-xs md:text-sm font-medium text-gray-900 hover:text-shakarim-blue cursor-pointer line-clamp-2">
+                                            Международная конференция по устойчивому развитию прошла в университете
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">8 января 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-b border-gray-100 pb-2 md:pb-4">
+                                <div class="flex items-start space-x-2 md:space-x-3">
+                                    <div class="w-2 h-2 bg-shakarim-blue rounded-full mt-2 flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-xs md:text-sm font-medium text-gray-900 hover:text-shakarim-blue cursor-pointer line-clamp-2">
+                                            Открытие нового спортивного комплекса для студентов
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">5 января 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-b border-gray-100 pb-2 md:pb-4">
+                                <div class="flex items-start space-x-2 md:space-x-3">
+                                    <div class="w-2 h-2 bg-shakarim-blue rounded-full mt-2 flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-xs md:text-sm font-medium text-gray-900 hover:text-shakarim-blue cursor-pointer line-clamp-2">
+                                            Партнерство с ведущими университетами Европы
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">3 января 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- All News Button -->
+                        <div class="text-center">
+                            <a href="#" class="inline-flex items-center w-full md:w-auto px-3 md:px-6 py-2 md:py-3 bg-gradient-to-r from-shakarim-blue to-shakarim-light text-white font-medium rounded-lg hover:from-shakarim-dark hover:to-shakarim-blue transition duration-200 shadow-lg hover:shadow-xl text-sm md:text-base">
+                                <span>Другие новости</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags Section -->
+            <div class="mt-6 md:mt-12">
+                <div class="bg-white rounded-xl shadow-lg p-3 md:p-6">
+                    <h3 class="text-base md:text-lg font-heading font-semibold text-shakarim-blue mb-3 md:mb-4 flex items-center">
+                        <i class="fas fa-tags mr-2 text-gray-500"></i>
+                        Популярные теги
+                    </h3>
+                    <div class="flex flex-wrap gap-1.5 md:gap-3">
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-blue-100 text-blue-800 rounded-full text-xs md:text-sm font-medium hover:bg-blue-200 cursor-pointer transition duration-200">
+                            #Образование
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-green-100 text-green-800 rounded-full text-xs md:text-sm font-medium hover:bg-green-200 cursor-pointer transition duration-200">
+                            #Наука
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-purple-100 text-purple-800 rounded-full text-xs md:text-sm font-medium hover:bg-purple-200 cursor-pointer transition duration-200">
+                            #Студенты
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-orange-100 text-orange-800 rounded-full text-xs md:text-sm font-medium hover:bg-orange-200 cursor-pointer transition duration-200">
+                            #Исследования
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-red-100 text-red-800 rounded-full text-xs md:text-sm font-medium hover:bg-red-200 cursor-pointer transition duration-200">
+                            #Инновации
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-indigo-100 text-indigo-800 rounded-full text-xs md:text-sm font-medium hover:bg-indigo-200 cursor-pointer transition duration-200">
+                            #Международное сотрудничество
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-pink-100 text-pink-800 rounded-full text-xs md:text-sm font-medium hover:bg-pink-200 cursor-pointer transition duration-200">
+                            #Спорт
+                        </span>
+                        <span class="px-2 md:px-4 py-1 md:py-2 bg-yellow-100 text-yellow-800 rounded-full text-xs md:text-sm font-medium hover:bg-yellow-200 cursor-pointer transition duration-200">
+                            #Конференции
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-shakarim-blue text-white py-8 md:py-12">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="university.png" alt="Shakarim University Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-blue-200 text-sm">1934 жылдан бері сапалы білім беру және ғылыми зерттеулер саласындағы көшбасшы университет.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Ақпарат</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Университет туралы</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Тарих</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Басшылық</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Құрылым</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Білім беру</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Бакалавриат</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Магистратура</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Докторантура</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Қашықтықтан оқыту</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Байланыс</h4>
+                    <div class="space-y-2 text-sm text-blue-200">
+                        <p>071412, Семей қ., Глинки көшесі, 20А</p>
+                        <p>+7 (7182) 67-36-69</p>
+                        <p>info@shakarim.edu.kz</p>
+                    </div>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-600 mt-8 pt-6 text-center text-sm text-blue-200">
+                <p>&copy; 2025 Шәкәрім атындағы Семей университеті. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Share menu functionality
+        function toggleShareMenu() {
+            const shareMenu = document.getElementById('share-menu');
+            const shareButton = document.querySelector('button[onclick="toggleShareMenu()"]');
+            
+            if (shareMenu.classList.contains('hidden')) {
+                // Position the menu relative to the button
+                const buttonRect = shareButton.getBoundingClientRect();
+                
+                // Mobile positioning - center the menu on small screens
+                if (window.innerWidth < 768) {
+                    shareMenu.style.top = (buttonRect.bottom + 8) + 'px';
+                    shareMenu.style.left = '50%';
+                    shareMenu.style.transform = 'translateX(-50%)';
+                    shareMenu.style.right = 'auto';
+                } else {
+                    // Desktop positioning
+                    shareMenu.style.top = (buttonRect.bottom + 8) + 'px';
+                    shareMenu.style.right = (window.innerWidth - buttonRect.right) + 'px';
+                    shareMenu.style.left = 'auto';
+                    shareMenu.style.transform = 'none';
+                }
+                
+                shareMenu.classList.remove('hidden');
+            } else {
+                shareMenu.classList.add('hidden');
+            }
+        }
+
+        // Close share menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const shareMenu = document.getElementById('share-menu');
+            const shareButton = event.target.closest('button[onclick="toggleShareMenu()"]');
+            
+            if (!shareButton && !shareMenu.contains(event.target)) {
+                shareMenu.classList.add('hidden');
+            }
+        });
+
+        // Close share menu when scrolling
+        document.addEventListener('scroll', function() {
+            const shareMenu = document.getElementById('share-menu');
+            if (!shareMenu.classList.contains('hidden')) {
+                shareMenu.classList.add('hidden');
+            }
+        });
+
+        // Share to social networks
+        function shareToSocial(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent('Открытие нового научно-исследовательского центра в Шакарим университете');
+            const text = encodeURIComponent('Сегодня в Шакарим университете состоялось торжественное открытие нового научно-исследовательского центра...');
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${title}%20${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'vk':
+                    shareUrl = `https://vk.com/share.php?url=${url}&title=${title}&description=${text}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+                // Close the share menu
+                document.getElementById('share-menu').classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html> 
