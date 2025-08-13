@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хабарландырулар - Білім беру жоғары мектебі</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shakarim-blue': '#314266',
+                        'shakarim-light': '#4f6392',
+                        'shakarim-dark': '#1e2a42',
+                        'education-green': '#059669',
+                        'education-light': '#10b981',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-education-green to-education-light text-white">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+            <div class="flex justify-between items-center text-sm">
+                <div class="flex items-center space-x-4">
+                    <span><i class="fas fa-phone mr-1"></i> +7 (7182) 67-36-69</span>
+                    <span><i class="fas fa-envelope mr-1"></i> info@shakarim.edu.kz</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="px-3 py-1 bg-white bg-opacity-20 text-white rounded text-xs hover:bg-opacity-30 transition">ҚАЗ</button>
+                    <button class="px-3 py-1 text-white hover:bg-white hover:text-education-green rounded text-xs transition">РУС</button>
+                    <button class="px-3 py-1 text-white hover:bg-white hover:text-education-green rounded text-xs transition">ENG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-education-green to-education-light rounded-lg flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-xl font-heading font-bold text-education-green">Білім беру</h1>
+                        <p class="text-sm text-gray-600">жоғары мектебі</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="templateschool1.html" class="text-gray-700 hover:text-education-green font-medium transition">Кафедралар</a>
+                    <a href="templateschool2.html" class="text-gray-700 hover:text-education-green font-medium transition">Жаңалықтар</a>
+                    <a href="#" class="text-education-green font-medium border-b-2 border-education-green">Хабарландырулар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Жұмыс жоспары</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Байланыс</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="lg:hidden hidden border-t py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="templateschool1.html" class="text-gray-700 hover:text-education-green font-medium">Кафедралар</a>
+                    <a href="templateschool2.html" class="text-gray-700 hover:text-education-green font-medium">Жаңалықтар</a>
+                    <a href="#" class="text-education-green font-medium border-b-2 border-education-green">Хабарландырулар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Жұмыс жоспары</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Байланыс</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <section class="bg-gray-100 py-3 border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="text-sm text-gray-500 flex items-center space-x-2" aria-label="Breadcrumb">
+                <a href="templateschool.html" class="hover:text-education-green">Басты бет</a>
+                <span class="mx-1">&#8250;</span>
+                <span class="text-education-green font-semibold">Хабарландырулар</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-heading font-bold text-education-green mb-8 text-center">Хабарландырулар</h1>
+        
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button class="px-4 py-2 bg-education-green text-white rounded-lg font-medium transition hover:bg-education-dark" onclick="filterAnnouncements('all')">
+                Барлығы
+            </button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition hover:bg-gray-300" onclick="filterAnnouncements('students')">
+                Студенттерге
+            </button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition hover:bg-gray-300" onclick="filterAnnouncements('teachers')">
+                Оқытушыларға
+            </button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition hover:bg-gray-300" onclick="filterAnnouncements('general')">
+                Жалпы
+            </button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition hover:bg-gray-300" onclick="filterAnnouncements('graduates')">
+                Түлектерге
+            </button>
+        </div>
+
+        <!-- Announcements Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Announcement 1 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="students">
+                <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                    <i class="fas fa-calendar-alt text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">29.05.2025</span>
+                        <span class="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded">Студенттерге</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Жазғы емтихан кезеңі туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Жазғы емтихан кезеңі 2025 жылдың 1 маусымынан басталады. Барлық студенттерге емтихан кестесін көруге болады.</p>
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2 rounded-lg hover:from-orange-600 hover:to-orange-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 2 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="teachers">
+                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-chalkboard-teacher text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">29.05.2025</span>
+                        <span class="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded">Оқытушыларға</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Әдістемелік семинар туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Келесі аптада әдістемелік семинар өтеді. Барлық оқытушыларға қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 3 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="general">
+                <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                    <i class="fas fa-bullhorn text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">29.10.2024</span>
+                        <span class="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded">Жалпы</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Жаңа оқу жылы туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Жаңа оқу жылы 2025 жылдың 1 қыркүйегінен басталады. Барлық студенттерге қош келдіңіздер!</p>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 4 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="graduates">
+                <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-user-graduate text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">23.09.2024</span>
+                        <span class="bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded">Түлектерге</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Түлектер кеші туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Жыл сайынғы түлектер кеші 2025 жылдың 15 маусымында өтеді. Барлық түлектерге қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 5 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="students">
+                <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+                    <i class="fas fa-book text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">24.05.2023</span>
+                        <span class="bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded">Студенттерге</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Кітапхана қызметі туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Кітапханада жаңа кітаптар пайда болды. Барлық студенттерге кітапхананы пайдалануға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-2 rounded-lg hover:from-pink-600 hover:to-pink-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 6 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="general">
+                <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
+                    <i class="fas fa-users text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">01.01.2024</span>
+                        <span class="bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded">Жалпы</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Жаңа жыл мерекесі туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Жаңа жыл мерекесіне орай факультетте әртүрлі іс-шаралар ұйымдастырылады.</p>
+                    <button class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 7 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="teachers">
+                <div class="h-48 bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
+                    <i class="fas fa-microscope text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">15.03.2024</span>
+                        <span class="bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded">Оқытушыларға</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Ғылыми жұмыс туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Ғылыми жұмыс жоспарын тапсыру мерзімі жақындады. Барлық оқытушыларға ескертеміз.</p>
+                    <button class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-2 rounded-lg hover:from-indigo-600 hover:to-indigo-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 8 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="students">
+                <div class="h-48 bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
+                    <i class="fas fa-running text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">10.02.2024</span>
+                        <span class="bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded">Студенттерге</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Спорт кеші туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Студенттер арасында спорт кеші өтеді. Барлық спортшыларға қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white py-2 rounded-lg hover:from-teal-600 hover:to-teal-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 9 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="general">
+                <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">05.04.2024</span>
+                        <span class="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded">Маңызды</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Маңызды хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Факультетте маңызды өзгерістер болды. Барлық студенттер мен оқытушыларға ескертеміз.</p>
+                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2 rounded-lg hover:from-red-600 hover:to-red-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 10 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="teachers">
+                <div class="h-48 bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center">
+                    <i class="fas fa-laptop text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">12.06.2024</span>
+                        <span class="bg-cyan-500 text-white text-xs font-semibold px-3 py-1 rounded">Оқытушыларға</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Компьютер курсы туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Оқытушылар үшін компьютер курсы ашылады. Барлық қызығушыларға қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-white py-2 rounded-lg hover:from-cyan-600 hover:to-cyan-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 11 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="students">
+                <div class="h-48 bg-gradient-to-br from-lime-500 to-lime-600 flex items-center justify-center">
+                    <i class="fas fa-music text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">18.07.2024</span>
+                        <span class="bg-lime-500 text-white text-xs font-semibold px-3 py-1 rounded">Студенттерге</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Музыка кеші туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Студенттер арасында музыка кеші өтеді. Барлық музыкашыларға қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-lime-500 to-lime-600 text-white py-2 rounded-lg hover:from-lime-600 hover:to-lime-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+
+            <!-- Announcement 12 -->
+            <div class="announcement-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-category="general">
+                <div class="h-48 bg-gradient-to-br from-fuchsia-500 to-fuchsia-600 flex items-center justify-center">
+                    <i class="fas fa-star text-white text-4xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-500 text-sm">22.08.2024</span>
+                        <span class="bg-fuchsia-500 text-white text-xs font-semibold px-3 py-1 rounded">Жалпы</span>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-education-green mb-4">Мереке туралы хабарландыру</h3>
+                    <p class="text-gray-600 text-sm mb-4">Факультетте мереке кеші өтеді. Барлық студенттер мен оқытушыларға қатысуға шақырамыз.</p>
+                    <button class="w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 text-white py-2 rounded-lg hover:from-fuchsia-600 hover:to-fuchsia-700 transition duration-200">
+                        Толығырақ...
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center space-x-2">
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">3</button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">4</button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border-2 border-education-green bg-education-green text-white font-bold">5</button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">6</button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">7</button>
+            <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-300 text-education-green hover:bg-gray-100 transition">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-education-green to-education-light text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Білім беру</h3>
+                            <p class="text-sm text-green-100">жоғары мектебі</p>
+                        </div>
+                    </div>
+                    <p class="text-green-100 text-sm">1934 жылдан бері сапалы білім беру және ғылыми зерттеулер саласындағы көшбасшы университет.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Кафедралар</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Қазақ филологиясы</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Шет тілдері</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Өнер кафедрасы</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Тарих кафедрасы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Қызметтер</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Жаңалықтар</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Хабарландырулар</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Жұмыс жоспары</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Электронды қызметтер</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Байланыс</h4>
+                    <div class="space-y-2 text-sm text-green-100">
+                        <p>071412, Семей қ., Глинки көшесі, 20А</p>
+                        <p>+7 (7182) 67-36-69</p>
+                        <p>info@shakarim.edu.kz</p>
+                    </div>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-green-400 mt-8 pt-6 text-center text-sm text-green-100">
+                <p>&copy; 2025 Шәкәрім атындағы Семей университеті. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter announcements
+        function filterAnnouncements(category) {
+            const cards = document.querySelectorAll('.announcement-card');
+            const buttons = document.querySelectorAll('button[onclick^="filterAnnouncements"]');
+            
+            // Update button styles
+            buttons.forEach(btn => {
+                if (btn.onclick.toString().includes(category)) {
+                    btn.className = 'px-4 py-2 bg-education-green text-white rounded-lg font-medium transition hover:bg-education-dark';
+                } else {
+                    btn.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition hover:bg-gray-300';
+                }
+            });
+            
+            // Show/hide cards based on category
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

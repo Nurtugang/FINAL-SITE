@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафедралар - Білім беру жоғары мектебі</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shakarim-blue': '#314266',
+                        'shakarim-light': '#4f6392',
+                        'shakarim-dark': '#1e2a42',
+                        'education-green': '#059669',
+                        'education-light': '#10b981',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-education-green to-education-light text-white">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+            <div class="flex justify-between items-center text-sm">
+                <div class="flex items-center space-x-4">
+                    <span><i class="fas fa-phone mr-1"></i> +7 (7182) 67-36-69</span>
+                    <span><i class="fas fa-envelope mr-1"></i> info@shakarim.edu.kz</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="px-3 py-1 bg-white bg-opacity-20 text-white rounded text-xs hover:bg-opacity-30 transition">ҚАЗ</button>
+                    <button class="px-3 py-1 text-white hover:bg-white hover:text-education-green rounded text-xs transition">РУС</button>
+                    <button class="px-3 py-1 text-white hover:bg-white hover:text-education-green rounded text-xs transition">ENG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-education-green to-education-light rounded-lg flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-xl font-heading font-bold text-education-green">Білім беру</h1>
+                        <p class="text-sm text-gray-600">жоғары мектебі</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="text-education-green font-medium border-b-2 border-education-green">Кафедралар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Хабарландырулар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Жұмыс жоспары</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium transition">Байланыс</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="lg:hidden hidden border-t py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-education-green font-medium border-b-2 border-education-green">Кафедралар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Жаңалықтар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Хабарландырулар</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Жұмыс жоспары</a>
+                    <a href="#" class="text-gray-700 hover:text-education-green font-medium">Байланыс</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <section class="bg-gray-100 py-3 border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="text-sm text-gray-500 flex items-center space-x-2" aria-label="Breadcrumb">
+                <a href="templateschool.html" class="hover:text-education-green">Басты бет</a>
+                <span class="mx-1">&#8250;</span>
+                <span class="text-education-green font-semibold">Кафедралар</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-heading font-bold text-education-green mb-8 text-center">Факультет кафедралары</h1>
+        
+        <!-- Departments Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Department 1 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-language text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Қазақ филологиясы және журналистика кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Қазақ тілі, әдебиеті және журналистика саласындағы мамандарды дайындайды.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-blue-500"></i>
+                            <span>Кафедра меңгерушісі: Досжанова А.К.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-blue-500"></i>
+                            <span>Оқытушылар: 15 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-blue-500"></i>
+                            <span>Студенттер: 180 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Филология</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Журналистика</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Әдебиет</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Department 2 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                    <i class="fas fa-globe text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Шет және орыс тілдері кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Шет тілдері мен орыс тілі саласындағы мамандарды дайындайды.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-green-500"></i>
+                            <span>Кафедра меңгерушісі: Исмаилова Г.М.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-green-500"></i>
+                            <span>Оқытушылар: 18 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-green-500"></i>
+                            <span>Студенттер: 220 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Ағылшын тілі</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Орыс тілі</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Неміс тілі</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-green-500 to-green-600 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Department 3 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-palette text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Өнер кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Көркем өнер, музыка және дизайн саласындағы мамандарды дайындайды.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-purple-500"></i>
+                            <span>Кафедра меңгерушісі: Кенжебаев Б.Т.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-purple-500"></i>
+                            <span>Оқытушылар: 12 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-purple-500"></i>
+                            <span>Студенттер: 95 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Көркем өнер</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Музыка</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Дизайн</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Department 4 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
+                    <i class="fas fa-landmark text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Тарих кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Тарих саласындағы мамандарды дайындайды және тарихи зерттеулер жүргізеді.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-yellow-500"></i>
+                            <span>Кафедра меңгерушісі: Садыков Н.А.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-yellow-500"></i>
+                            <span>Оқытушылар: 14 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-yellow-500"></i>
+                            <span>Студенттер: 150 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Қазақстан тарихы</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Дүниежүзі тарихы</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Археология</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Department 5 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Педагогика және психология кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Педагогикалық және психологиялық білім беру саласындағы мамандарды дайындайды.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-red-500"></i>
+                            <span>Кафедра меңгерушісі: Толеуова Р.С.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-red-500"></i>
+                            <span>Оқытушылар: 20 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-red-500"></i>
+                            <span>Студенттер: 280 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Педагогика</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Психология</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Кәсіби оқыту</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-red-500 to-red-600 text-white py-2 rounded-lg hover:from-red-600 hover:to-red-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Department 6 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
+                    <i class="fas fa-laptop-code text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Ақпараттық технологиялар кафедрасы</h3>
+                    <p class="text-gray-600 text-sm mb-4">Ақпараттық технологиялар саласындағы мамандарды дайындайды.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-tie mr-2 text-indigo-500"></i>
+                            <span>Кафедра меңгерушісі: Жақсылықов Д.К.</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-indigo-500"></i>
+                            <span>Оқытушылар: 16 адам</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2 text-indigo-500"></i>
+                            <span>Студенттер: 120 адам</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Программалау</span>
+                        <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Желілер</span>
+                        <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Деректер</span>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-2 rounded-lg hover:from-indigo-600 hover:to-indigo-700 transition duration-200">
+                        Толығырақ
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department Statistics -->
+        <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-heading font-bold text-education-green mb-8 text-center">Кафедралар статистикасы</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-900">95</p>
+                    <p class="text-sm text-gray-600">Оқытушылар</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-900">1,045</p>
+                    <p class="text-sm text-gray-600">Студенттер</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-white text-2xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-900">25</p>
+                    <p class="text-sm text-gray-600">Оқу бағдарламалары</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-900">156</p>
+                    <p class="text-sm text-gray-600">Жетістіктер</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-education-green to-education-light text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Білім беру</h3>
+                            <p class="text-sm text-green-100">жоғары мектебі</p>
+                        </div>
+                    </div>
+                    <p class="text-green-100 text-sm">1934 жылдан бері сапалы білім беру және ғылыми зерттеулер саласындағы көшбасшы университет.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Кафедралар</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Қазақ филологиясы</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Шет тілдері</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Өнер кафедрасы</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Тарих кафедрасы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Қызметтер</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Жаңалықтар</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Хабарландырулар</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Жұмыс жоспары</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white transition">Электронды қызметтер</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Байланыс</h4>
+                    <div class="space-y-2 text-sm text-green-100">
+                        <p>071412, Семей қ., Глинки көшесі, 20А</p>
+                        <p>+7 (7182) 67-36-69</p>
+                        <p>info@shakarim.edu.kz</p>
+                    </div>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-green-400 mt-8 pt-6 text-center text-sm text-green-100">
+                <p>&copy; 2025 Шәкәрім атындағы Семей университеті. Барлық құқықтар қорғалған.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
